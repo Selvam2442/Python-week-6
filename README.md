@@ -1,137 +1,51 @@
-# 📊 Sales Forecasting Analysis System (Google Colab)
+# Customer Churn Dataset Generator & Analysis
 
-## 📌 Project Overview
+This project provides a Python-based solution for generating a synthetic customer churn database and performing exploratory data analysis (EDA). It is designed to simulate realistic business scenarios where customer attributes and behaviors influence churn rates.
 
-This project focuses on analyzing historical sales data and predicting future sales using **Exploratory Data Analysis (EDA)** and **Machine Learning**.
+## Features
 
-It is implemented using **Google Colab**, making it easy to run without installing any software locally.
+- **Synthetic Data Generation**: Uses the `Faker` library to generate realistic names, addresses, and contact information.
+- **Realistic Churn Logic**: Implements business rules to simulate churn based on tenure, contract type, and customer support interactions.
+- **Data Export**: Automatically saves the generated data into a structured CSV file (`customer_churn_database.csv`).
+- **Exploratory Data Analysis (EDA)**:
+    - Data cleaning and preprocessing (One-Hot Encoding for categorical variables).
+    - Statistical summaries of customer demographics and spending.
+    - Visualization of churn distribution and churn rates across different segments like Age and Gender.
 
----
+## Dataset Overview
 
-## 🎯 Objectives
+The generated dataset contains 1,000 customer records with 14 features:
 
-* Understand sales patterns and trends
-* Perform data cleaning and preprocessing
-* Visualize sales data using graphs
-* Analyze store-wise and time-based performance
-* Predict future sales using Linear Regression
+| Feature | Description |
+| :--- | :--- |
+| `Customer_ID` | Unique identifier for each customer |
+| `Name` | Customer's full name |
+| `Age` | Customer age (18-70) |
+| `Gender` | Male or Female |
+| `City` | Customer's location |
+| `Tenure` | Duration of subscription in months |
+| `Monthly_Charges` | Recurring monthly bill amount |
+| `Total_Charges` | Cumulative charges over tenure |
+| `Contract_Type` | Monthly, Yearly, or Two-Year |
+| `Internet_Service` | Fiber, DSL, or None |
+| `Support_Calls` | Number of customer support interactions |
+| `Churn` | Binary indicator (1: Churned, 0: Retained) |
 
----
+## Churn Simulation Logic
+The model uses specific business logic to determine churn: A customer is marked as churned (`1`) if they meet the following criteria:
+- **Tenure**: Less than 12 months.
+- **Contract Type**: Monthly contract.
+- **Support Calls**: More than 3 calls.
 
-## 🛠️ Technologies Used
+## Getting Started
 
-* Python 🐍
-* Google Colab
-* Pandas
-* NumPy
-* Matplotlib
-* Scikit-learn
+### Prerequisites
+Ensure you have Python installed along with the following libraries:
+- `pandas`
+- `faker`
+- `matplotlib`
+- `seaborn`
 
----
-
-## 📂 Dataset Requirements
-
-Your CSV file should contain the following columns:
-
-| Column Name | Description             |
-| ----------- | ----------------------- |
-| Date        | Transaction date        |
-| Store       | Store ID                |
-| Item        | Product ID              |
-| Sales       | Number of items sold    |
-| Region      | (Optional) Sales region |
-
----
-
-## ▶️ How to Run (Step-by-Step)
-
-1. Open Google Colab
-2. Create a new notebook
-3. Copy and paste the provided code cells
-4. Run each cell step-by-step
-
-### Upload Dataset
-
-Use this code to upload your CSV file:
-
-```python
-from google.colab import files
-uploaded = files.upload()
-```
-
----
-
-## 🔄 Project Workflow
-
-### 1. Data Loading
-
-* Upload CSV file
-* Read data using Pandas
-
-### 2. Data Cleaning
-
-* Convert Date column to datetime
-* Remove duplicates
-* Handle missing values
-
-### 3. Exploratory Data Analysis (EDA)
-
-* Calculate total, average, min, max sales
-* Understand data distribution
-
-### 4. Data Visualization
-
-* 📈 Line Chart → Sales over time
-* 📊 Bar Chart → Store-wise sales
-
-### 5. Sales Forecasting
-
-* Convert date into numeric format
-* Train Linear Regression model
-* Predict next 30 days sales
-
----
-
-## 📊 Output
-
-* Cleaned dataset
-* Sales statistics
-* Visual graphs
-* Future sales predictions
-
----
-
-## 🚀 Sample Output
-
-* Sales Trend Graph
-* Store Comparison Chart
-* 30-Day Forecast Values
-
----
-
-## ⚡ Future Improvements
-
-* Use advanced models (ARIMA, LSTM)
-* Add interactive dashboard
-* Deploy as web application
-* Real-time data integration
-
----
-
-## 👨‍💻 Author
-
-**Maria Antony Selvam S**
-
----
-
-## 💡 Notes
-
-* Ensure your dataset is clean and properly formatted
-* Date column must be in valid format (YYYY-MM-DD)
-* Larger datasets give better prediction results
-
----
-
-## ⭐ Conclusion
-
-This project helps in understanding business sales patterns and supports better decision-making using data-driven insights and basic forecasting techniques.
+### Installation
+```bash
+pip install pandas faker matplotlib seaborn
